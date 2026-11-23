@@ -7,6 +7,13 @@
         .academy-global-copy p:last-child { margin-bottom:0; }
         .academy-global-art { align-self:flex-start; }
         .academy-global-art img { aspect-ratio:1/1; object-fit:cover; }
+        /* The legacy module styles assume a dark drawer and a static hamburger icon. */
+        body:has(main#main-content[data-yaju-academy-template]) [data-desktop-nav] [data-desktop-panel] [data-desktop-menu] a {
+          color: inherit !important;
+        }
+        body:has(main#main-content[data-yaju-academy-template]) [data-mobile-nav] > button[aria-expanded] img {
+          content: normal;
+        }
         @media (min-width:1024px) {
           .academy-global-copy p { font-size:15px; line-height:1.75; }
           .academy-global-art { position:sticky; top:112px; }

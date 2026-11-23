@@ -29,6 +29,11 @@ try {
             await page.waitForFunction(() => document.querySelector('[data-desktop-panel]').getBoundingClientRect().height > 0);
             assert.equal(await active.count(), 1);
             if (role === 'button') assert.equal(await link.getAttribute('aria-expanded'), 'true');
+            if (route === '/agent-academy') {
+              const colors = await active.locator('a').evaluateAll(links => links.map(link => getComputedStyle(link).color));
+              assert.ok(colors.length > 0);
+              assert.ok(colors.every(color => color === 'rgb(0, 0, 0)'), `${label}: menu links must use the dark foreground of the light header`);
+            }
             await active.locator('a').first().focus();
             assert.ok(await page.locator('[data-desktop-panel]').evaluate(el => el.getBoundingClientRect().height > 0));
             await page.keyboard.press('Escape');
@@ -38,6 +43,10 @@ try {
             await toggle.focus();
             await page.keyboard.press('Enter');
             assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
+            if (route === '/agent-academy') {
+              assert.equal(await toggle.locator('img').getAttribute('src'), '/nav_close.svg');
+              assert.equal(await toggle.locator('img').evaluate(icon => getComputedStyle(icon).content), 'normal');
+            }
             assert.equal(await page.locator('body').evaluate(el => getComputedStyle(el).overflowY), 'hidden');
             await page.getByRole('button', { name: label, exact: true }).first().focus();
             await page.keyboard.press('Enter');
