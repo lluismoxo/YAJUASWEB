@@ -7,6 +7,7 @@
   const desktopPanel = desktop.querySelector('[data-desktop-panel]');
   const desktopMenus = [...desktop.querySelectorAll('[data-desktop-menu]')];
   const items = [...desktop.querySelectorAll('[data-menu-item]')];
+  const desktopTriggers = items.map(item => item.querySelector('button, a'));
   const overlay = document.querySelector('[data-nav-overlay]');
   const panel = document.querySelector('[data-mobile-panel]');
   const rootMenu = panel.querySelector('[data-mobile-root]');
@@ -54,7 +55,10 @@
     clearTimeout(closeTimer);
     activeDesktop = index;
     desktopPanel.className = `grid transition-[grid-template-rows] ease-in-out ${index === null ? 'grid-rows-[0fr] duration-[650ms]' : 'grid-rows-[1fr] duration-300'}`;
-    items.forEach((item,i) => item.querySelector('a').classList.toggle(dark?'bg-neutral-30':'bg-neutral-90', i === index));
+    desktopTriggers.forEach((trigger,i) => {
+      trigger.classList.toggle(dark?'bg-neutral-30':'bg-neutral-90', i === index);
+      if(trigger.matches('button'))trigger.setAttribute('aria-expanded',String(i===index));
+    });
     if (index !== null) desktopMenus.forEach((menu,i) => {
       menu.classList.toggle('hidden',i !== index);
       menu.setAttribute('aria-hidden',String(i !== index));
@@ -63,7 +67,8 @@
     chrome();
   }
   items.forEach((item,index) => {
-    item.querySelector('a').addEventListener('click',event=>{if(event.currentTarget.classList.contains('pointer-events-none'))event.preventDefault();});
+    const trigger = desktopTriggers[index];
+    if(trigger.matches('button'))trigger.addEventListener('click',()=>setDesktop(index));
     item.addEventListener('mouseenter',()=>setDesktop(index));
     item.addEventListener('focusin',()=>setDesktop(index));
   });

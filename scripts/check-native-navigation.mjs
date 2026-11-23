@@ -22,11 +22,13 @@ try {
         await page.evaluate(() => document.fonts.ready);
         for (const label of ['Product', 'Solutions', 'Resources', 'Blog', 'Company']) {
           if (width >= 1024) {
-            const link = page.getByRole('link', { name: label, exact: true }).first();
+            const role = ['Blog', 'Company'].includes(label) ? 'link' : 'button';
+            const link = page.locator('[data-desktop-nav]').getByRole(role, { name: label, exact: true }).first();
             await link.focus();
             const active = page.locator('[data-desktop-menu][aria-hidden="false"]');
             await page.waitForFunction(() => document.querySelector('[data-desktop-panel]').getBoundingClientRect().height > 0);
             assert.equal(await active.count(), 1);
+            if (role === 'button') assert.equal(await link.getAttribute('aria-expanded'), 'true');
             await active.locator('a').first().focus();
             assert.ok(await page.locator('[data-desktop-panel]').evaluate(el => el.getBoundingClientRect().height > 0));
             await page.keyboard.press('Escape');

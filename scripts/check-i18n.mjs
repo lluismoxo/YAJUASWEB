@@ -6,6 +6,7 @@ import {alternates,languagePath} from '../src/i18n/pages.mjs';
 const pages=JSON.parse(await readFile('config/native-pages.json','utf8'));pages.push({output:'legal/index.html'});
 const english=JSON.parse(await readFile('locales/en-US.json','utf8'));
 let checked=0;
+const expectedSitemap = new Map();
 function nodes(html){const all=[];function walk(n){all.push(n);for(const c of n.childNodes||[])walk(c);if(n.content)walk(n.content)}walk(parse(html));return all;}
 for(const language of languages){
  const dict=language.prefix?JSON.parse(await readFile(`locales/${language.code}.json`,'utf8')):english;
@@ -16,6 +17,10 @@ for(const language of languages){
   const elements=all.filter(n=>n.tagName).map(n=>({tag:n.tagName,attrs:Object.fromEntries(n.attrs.map(a=>[a.name,a.value])),node:n}));
   assert.equal(elements.find(n=>n.tag==='html').attrs.lang,language.code,file);
   const canonical=elements.filter(n=>n.tag==='link'&&n.attrs.rel==='canonical');assert.equal(canonical.length,1,file);assert.equal(canonical[0].attrs.href,'https://yajuas.com'+languagePath(route,language),file);
+  const robots = elements.filter(n=>n.tag==='meta' && n.attrs.name?.toLowerCase()==='robots');
+  if (!robots.some(n=>/\b(?:noindex|none)\b/i.test(n.attrs.content))) {
+   expectedSitemap.set(canonical[0].attrs.href, alternates(route).map(({lang, href})=>[lang, href]));
+  }
   const alternate=elements.filter(n=>n.tag==='link'&&n.attrs.hreflang);assert.equal(alternate.length,7,file);
   for(const link of alternates(route))assert.ok(alternate.some(n=>n.attrs.hreflang===link.lang&&n.attrs.href===link.href),file);
   assert.equal(elements.find(n=>n.attrs.property==='og:locale')?.attrs.content,language.og,file);
@@ -41,5 +46,16 @@ for(const language of languages){
   checked++;
  }
 }
-const xml=await readFile('public/sitemap.xml','utf8');assert.equal((xml.match(/<url>/g)||[]).length,408);assert.equal((xml.match(/<xhtml:link /g)||[]).length,408*7);
-console.log(`PASS: ${checked} pages, six languages, reciprocal hreflang/canonicals/metadata, complete catalogs, 408 sitemap URLs.`);
+const xml=await readFile('public/sitemap.xml','utf8');
+const entries=[...xml.matchAll(/<url>(.*?)<\/url>/gs)].map(([,entry])=>{
+ const url=entry.match(/<loc>(.*?)<\/loc>/)?.[1];
+ const localized=[...entry.matchAll(/<xhtml:link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
+  .map(([,lang,href])=>[lang,href]);
+ return [url,localized];
+});
+assert.equal(entries.length,expectedSitemap.size,'Sitemap must list each indexable canonical once');
+assert.deepEqual(new Map(entries),expectedSitemap);
+for(const language of languages)for(const route of ['/','/agent-orchestration-system','/pricing','/software-factory','/agent-hub','/about','/contact-sales','/customer-stories','/labs','/blog']){
+ assert.ok(expectedSitemap.has('https://yajuas.com'+languagePath(route,language)),`Missing priority route: ${language.code} ${route}`);
+}
+console.log(`PASS: ${checked} pages, six languages, reciprocal hreflang/canonicals/metadata, complete catalogs, ${entries.length} sitemap URLs.`);
