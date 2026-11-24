@@ -1,0 +1,550 @@
+[
+  {
+    "source": "src/pages/about/index.html",
+    "output": "about/index.html"
+  },
+  {
+    "source": "src/pages/agent-academy/index.html",
+    "output": "agent-academy/index.html"
+  },
+  {
+    "source": "src/pages/agent-hub/index.html",
+    "output": "agent-hub/index.html"
+  },
+  {
+    "source": "src/pages/agent-orchestration-system/index.html",
+    "output": "agent-orchestration-system/index.html"
+  },
+  {
+    "source": "src/pages/ai-approach/index.html",
+    "output": "ai-approach/index.html"
+  },
+  {
+    "source": "src/pages/ai-governance/index.html",
+    "output": "ai-governance/index.html"
+  },
+  {
+    "source": "src/pages/ai-observability/index.html",
+    "output": "ai-observability/index.html"
+  },
+  {
+    "source": "src/pages/ai-spend-explorer/index.html",
+    "output": "ai-spend-explorer/index.html"
+  },
+  {
+    "source": "src/pages/ai-spend/index.html",
+    "output": "ai-spend/index.html"
+  },
+  {
+    "source": "src/pages/ai-transformation/index.html",
+    "output": "ai-transformation/index.html"
+  },
+  {
+    "source": "src/pages/blog/2026-summer-merch-collection/index.html",
+    "output": "blog/2026-summer-merch-collection/index.html"
+  },
+  {
+    "source": "src/pages/blog/a-day-in-the-life-of-a-wealth-manager-with-and-without-ai/index.html",
+    "output": "blog/a-day-in-the-life-of-a-wealth-manager-with-and-without-ai/index.html"
+  },
+  {
+    "source": "src/pages/blog/a-small-agent-for-a-narrow-job/index.html",
+    "output": "blog/a-small-agent-for-a-narrow-job/index.html"
+  },
+  {
+    "source": "src/pages/blog/agent-rollouts-across-business-units/index.html",
+    "output": "blog/agent-rollouts-across-business-units/index.html"
+  },
+  {
+    "source": "src/pages/blog/agent-workloads-and-infrastructure/index.html",
+    "output": "blog/agent-workloads-and-infrastructure/index.html"
+  },
+  {
+    "source": "src/pages/blog/agentic-task-ecosystem/index.html",
+    "output": "blog/agentic-task-ecosystem/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-and-systems-of-record/index.html",
+    "output": "blog/agents-and-systems-of-record/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-in-manufacturing-operations/index.html",
+    "output": "blog/agents-in-manufacturing-operations/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-in-regulated-industries/index.html",
+    "output": "blog/agents-in-regulated-industries/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-in-telecom-operations/index.html",
+    "output": "blog/agents-in-telecom-operations/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-on-your-own-hardware/index.html",
+    "output": "blog/agents-on-your-own-hardware/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-that-plan-and-agents-that-react/index.html",
+    "output": "blog/agents-that-plan-and-agents-that-react/index.html"
+  },
+  {
+    "source": "src/pages/blog/agents-that-work-outside-english/index.html",
+    "output": "blog/agents-that-work-outside-english/index.html"
+  },
+  {
+    "source": "src/pages/blog/air-gapped-agent-deployments/index.html",
+    "output": "blog/air-gapped-agent-deployments/index.html"
+  },
+  {
+    "source": "src/pages/blog/announcement/index.html",
+    "output": "blog/announcement/index.html"
+  },
+  {
+    "source": "src/pages/blog/automating-fork-maintenance-with-ai-agents/index.html",
+    "output": "blog/automating-fork-maintenance-with-ai-agents/index.html"
+  },
+  {
+    "source": "src/pages/blog/automations-early-footprint/index.html",
+    "output": "blog/automations-early-footprint/index.html"
+  },
+  {
+    "source": "src/pages/blog/building-for-ai-regulation/index.html",
+    "output": "blog/building-for-ai-regulation/index.html"
+  },
+  {
+    "source": "src/pages/blog/choosing-a-model-is-an-operations-decision/index.html",
+    "output": "blog/choosing-a-model-is-an-operations-decision/index.html"
+  },
+  {
+    "source": "src/pages/blog/chunking-for-rag-maximize-enterprise-knowledge-retrieval/index.html",
+    "output": "blog/chunking-for-rag-maximize-enterprise-knowledge-retrieval/index.html"
+  },
+  {
+    "source": "src/pages/blog/community-research-across-regions/index.html",
+    "output": "blog/community-research-across-regions/index.html"
+  },
+  {
+    "source": "src/pages/blog/connect-2025/index.html",
+    "output": "blog/connect-2025/index.html"
+  },
+  {
+    "source": "src/pages/blog/documents-are-not-text/index.html",
+    "output": "blog/documents-are-not-text/index.html"
+  },
+  {
+    "source": "src/pages/blog/enterprise-ai-maturity-model/index.html",
+    "output": "blog/enterprise-ai-maturity-model/index.html"
+  },
+  {
+    "source": "src/pages/blog/evaluating-an-agent-platform/index.html",
+    "output": "blog/evaluating-an-agent-platform/index.html"
+  },
+  {
+    "source": "src/pages/blog/exploring-ai-in-education/index.html",
+    "output": "blog/exploring-ai-in-education/index.html"
+  },
+  {
+    "source": "src/pages/blog/forward-deployed-engineers-capability-building/index.html",
+    "output": "blog/forward-deployed-engineers-capability-building/index.html"
+  },
+  {
+    "source": "src/pages/blog/generative-ai-for-business/index.html",
+    "output": "blog/generative-ai-for-business/index.html"
+  },
+  {
+    "source": "src/pages/blog/hardware-aware-dynamic-speculative-decoding/index.html",
+    "output": "blog/hardware-aware-dynamic-speculative-decoding/index.html"
+  },
+  {
+    "source": "src/pages/blog/hiring-engineers-new-to-agents/index.html",
+    "output": "blog/hiring-engineers-new-to-agents/index.html"
+  },
+  {
+    "source": "src/pages/blog/how-our-early-access-programme-works/index.html",
+    "output": "blog/how-our-early-access-programme-works/index.html"
+  },
+  {
+    "source": "src/pages/blog/how-small-models-can-make-a-big-impact-for-enterprises/index.html",
+    "output": "blog/how-small-models-can-make-a-big-impact-for-enterprises/index.html"
+  },
+  {
+    "source": "src/pages/blog/how-we-are-growing-the-team/index.html",
+    "output": "blog/how-we-are-growing-the-team/index.html"
+  },
+  {
+    "source": "src/pages/blog/index.html",
+    "output": "blog/index.html"
+  },
+  {
+    "source": "src/pages/blog/introducing-the-software-factory/index.html",
+    "output": "blog/introducing-the-software-factory/index.html"
+  },
+  {
+    "source": "src/pages/blog/latency-budgets-for-agents/index.html",
+    "output": "blog/latency-budgets-for-agents/index.html"
+  },
+  {
+    "source": "src/pages/blog/meet-the-software-factory/index.html",
+    "output": "blog/meet-the-software-factory/index.html"
+  },
+  {
+    "source": "src/pages/blog/megakernels/index.html",
+    "output": "blog/megakernels/index.html"
+  },
+  {
+    "source": "src/pages/blog/multimodal-embeddings/index.html",
+    "output": "blog/multimodal-embeddings/index.html"
+  },
+  {
+    "source": "src/pages/blog/oran-in-the-wild/index.html",
+    "output": "blog/oran-in-the-wild/index.html"
+  },
+  {
+    "source": "src/pages/blog/reranking-in-your-own-cloud/index.html",
+    "output": "blog/reranking-in-your-own-cloud/index.html"
+  },
+  {
+    "source": "src/pages/blog/reranking-is-the-cheapest-accuracy/index.html",
+    "output": "blog/reranking-is-the-cheapest-accuracy/index.html"
+  },
+  {
+    "source": "src/pages/blog/retrieval-evaluation-from-a-public-corpus/index.html",
+    "output": "blog/retrieval-evaluation-from-a-public-corpus/index.html"
+  },
+  {
+    "source": "src/pages/blog/running-agents-under-eu-data-rules/index.html",
+    "output": "blog/running-agents-under-eu-data-rules/index.html"
+  },
+  {
+    "source": "src/pages/blog/small-agents-scoped-tightly/index.html",
+    "output": "blog/small-agents-scoped-tightly/index.html"
+  },
+  {
+    "source": "src/pages/blog/state-of-sovereign-ai-adoption-2026/index.html",
+    "output": "blog/state-of-sovereign-ai-adoption-2026/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/ai-for-developers/index.html",
+    "output": "blog/tag/ai-for-developers/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/ai-governance/index.html",
+    "output": "blog/tag/ai-governance/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/company-news/index.html",
+    "output": "blog/tag/company-news/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/enterprise-ai/index.html",
+    "output": "blog/tag/enterprise-ai/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/financial-services/index.html",
+    "output": "blog/tag/financial-services/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/for-business/index.html",
+    "output": "blog/tag/for-business/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/healthcare-life-sciences/index.html",
+    "output": "blog/tag/healthcare-life-sciences/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/open-science/index.html",
+    "output": "blog/tag/open-science/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/partner/index.html",
+    "output": "blog/tag/partner/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/product-launch/index.html",
+    "output": "blog/tag/product-launch/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/research/index.html",
+    "output": "blog/tag/research/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/sovereign-ai/index.html",
+    "output": "blog/tag/sovereign-ai/index.html"
+  },
+  {
+    "source": "src/pages/blog/tag/technology/index.html",
+    "output": "blog/tag/technology/index.html"
+  },
+  {
+    "source": "src/pages/blog/the-future-of-work-debate-has-an-evidence-problem/index.html",
+    "output": "blog/the-future-of-work-debate-has-an-evidence-problem/index.html"
+  },
+  {
+    "source": "src/pages/blog/the-total-cost-of-ai-ownership/index.html",
+    "output": "blog/the-total-cost-of-ai-ownership/index.html"
+  },
+  {
+    "source": "src/pages/blog/the-yaju-approach-to-ai-governance/index.html",
+    "output": "blog/the-yaju-approach-to-ai-governance/index.html"
+  },
+  {
+    "source": "src/pages/blog/transcription-is-an-input-problem/index.html",
+    "output": "blog/transcription-is-an-input-problem/index.html"
+  },
+  {
+    "source": "src/pages/blog/transcription-outside-tuned-languages/index.html",
+    "output": "blog/transcription-outside-tuned-languages/index.html"
+  },
+  {
+    "source": "src/pages/blog/what-an-embedding-commits-you-to/index.html",
+    "output": "blog/what-an-embedding-commits-you-to/index.html"
+  },
+  {
+    "source": "src/pages/blog/what-changed-in-oran-3-6/index.html",
+    "output": "blog/what-changed-in-oran-3-6/index.html"
+  },
+  {
+    "source": "src/pages/blog/what-sovereign-deployment-requires/index.html",
+    "output": "blog/what-sovereign-deployment-requires/index.html"
+  },
+  {
+    "source": "src/pages/blog/what-we-look-for-in-scholars/index.html",
+    "output": "blog/what-we-look-for-in-scholars/index.html"
+  },
+  {
+    "source": "src/pages/blog/what-your-corpus-leaves-out/index.html",
+    "output": "blog/what-your-corpus-leaves-out/index.html"
+  },
+  {
+    "source": "src/pages/blog/when-a-bigger-model-is-the-wrong-answer/index.html",
+    "output": "blog/when-a-bigger-model-is-the-wrong-answer/index.html"
+  },
+  {
+    "source": "src/pages/blog/why-agent-programmes-stall/index.html",
+    "output": "blog/why-agent-programmes-stall/index.html"
+  },
+  {
+    "source": "src/pages/blog/working-with-delivery-partners/index.html",
+    "output": "blog/working-with-delivery-partners/index.html"
+  },
+  {
+    "source": "src/pages/careers/index.html",
+    "output": "careers/index.html"
+  },
+  {
+    "source": "src/pages/cli/index.html",
+    "output": "cli/index.html"
+  },
+  {
+    "source": "src/pages/contact-sales/index.html",
+    "output": "contact-sales/index.html"
+  },
+  {
+    "source": "src/pages/cookies/index.html",
+    "output": "cookies/index.html"
+  },
+  {
+    "source": "src/pages/cost-control/index.html",
+    "output": "cost-control/index.html"
+  },
+  {
+    "source": "src/pages/credential-vault/index.html",
+    "output": "credential-vault/index.html"
+  },
+  {
+    "source": "src/pages/customer-stories/agents-in-cloud-operations/index.html",
+    "output": "customer-stories/agents-in-cloud-operations/index.html"
+  },
+  {
+    "source": "src/pages/customer-stories/agents-in-contract-review/index.html",
+    "output": "customer-stories/agents-in-contract-review/index.html"
+  },
+  {
+    "source": "src/pages/customer-stories/agents-in-enterprise-integration/index.html",
+    "output": "customer-stories/agents-in-enterprise-integration/index.html"
+  },
+  {
+    "source": "src/pages/customer-stories/index.html",
+    "output": "customer-stories/index.html"
+  },
+  {
+    "source": "src/pages/customer-stories/support-triage-with-agents/index.html",
+    "output": "customer-stories/support-triage-with-agents/index.html"
+  },
+  {
+    "source": "src/pages/customization/index.html",
+    "output": "customization/index.html"
+  },
+  {
+    "source": "src/pages/data-commitments/index.html",
+    "output": "data-commitments/index.html"
+  },
+  {
+    "source": "src/pages/deployment-options/index.html",
+    "output": "deployment-options/index.html"
+  },
+  {
+    "source": "src/pages/developers/index.html",
+    "output": "developers/index.html"
+  },
+  {
+    "source": "src/pages/get-started/index.html",
+    "output": "get-started/index.html"
+  },
+  {
+    "source": "src/pages/index.html",
+    "output": "index.html"
+  },
+  {
+    "source": "src/pages/labs/agentic-task-ecosystem/index.html",
+    "output": "labs/agentic-task-ecosystem/index.html"
+  },
+  {
+    "source": "src/pages/labs/catalyst-grants/application/index.html",
+    "output": "labs/catalyst-grants/application/index.html"
+  },
+  {
+    "source": "src/pages/labs/catalyst-grants/index.html",
+    "output": "labs/catalyst-grants/index.html"
+  },
+  {
+    "source": "src/pages/labs/education/index.html",
+    "output": "labs/education/index.html"
+  },
+  {
+    "source": "src/pages/labs/futures-of-work/index.html",
+    "output": "labs/futures-of-work/index.html"
+  },
+  {
+    "source": "src/pages/labs/index.html",
+    "output": "labs/index.html"
+  },
+  {
+    "source": "src/pages/labs/newsletter/index.html",
+    "output": "labs/newsletter/index.html"
+  },
+  {
+    "source": "src/pages/labs/open-development/application/index.html",
+    "output": "labs/open-development/application/index.html"
+  },
+  {
+    "source": "src/pages/labs/open-development/index.html",
+    "output": "labs/open-development/index.html"
+  },
+  {
+    "source": "src/pages/labs/oran/index.html",
+    "output": "labs/oran/index.html"
+  },
+  {
+    "source": "src/pages/labs/scholars/index.html",
+    "output": "labs/scholars/index.html"
+  },
+  {
+    "source": "src/pages/lp/thank-you/index.html",
+    "output": "lp/thank-you/index.html"
+  },
+  {
+    "source": "src/pages/mcp-gateway/index.html",
+    "output": "mcp-gateway/index.html"
+  },
+  {
+    "source": "src/pages/newsroom/index.html",
+    "output": "newsroom/index.html"
+  },
+  {
+    "source": "src/pages/optimizer/index.html",
+    "output": "optimizer/index.html"
+  },
+  {
+    "source": "src/pages/oran-mini-code/index.html",
+    "output": "oran-mini-code/index.html"
+  },
+  {
+    "source": "src/pages/partners/application/index.html",
+    "output": "partners/application/index.html"
+  },
+  {
+    "source": "src/pages/partners/index.html",
+    "output": "partners/index.html"
+  },
+  {
+    "source": "src/pages/pricing/index.html",
+    "output": "pricing/index.html"
+  },
+  {
+    "source": "src/pages/privacy/index.html",
+    "output": "privacy/index.html"
+  },
+  {
+    "source": "src/pages/register/index.html",
+    "output": "register/index.html"
+  },
+  {
+    "source": "src/pages/reports/state-of-sovereign-ai-adoption-2026/index.html",
+    "output": "reports/state-of-sovereign-ai-adoption-2026/index.html"
+  },
+  {
+    "source": "src/pages/responsible-disclosure/index.html",
+    "output": "responsible-disclosure/index.html"
+  },
+  {
+    "source": "src/pages/security/index.html",
+    "output": "security/index.html"
+  },
+  {
+    "source": "src/pages/self-hosted/index.html",
+    "output": "self-hosted/index.html"
+  },
+  {
+    "source": "src/pages/software-factory-demo/index.html",
+    "output": "software-factory-demo/index.html"
+  },
+  {
+    "source": "src/pages/software-factory/index.html",
+    "output": "software-factory/index.html"
+  },
+  {
+    "source": "src/pages/solutions/engineering/index.html",
+    "output": "solutions/engineering/index.html"
+  },
+  {
+    "source": "src/pages/solutions/financial-services/index.html",
+    "output": "solutions/financial-services/index.html"
+  },
+  {
+    "source": "src/pages/solutions/healthcare-and-life-sciences/index.html",
+    "output": "solutions/healthcare-and-life-sciences/index.html"
+  },
+  {
+    "source": "src/pages/solutions/manufacturing/index.html",
+    "output": "solutions/manufacturing/index.html"
+  },
+  {
+    "source": "src/pages/solutions/public-sector/index.html",
+    "output": "solutions/public-sector/index.html"
+  },
+  {
+    "source": "src/pages/solutions/telecommunications/index.html",
+    "output": "solutions/telecommunications/index.html"
+  },
+  {
+    "source": "src/pages/terms-of-use/index.html",
+    "output": "terms-of-use/index.html"
+  },
+  {
+    "source": "src/pages/terms/index.html",
+    "output": "terms/index.html"
+  },
+  {
+    "source": "src/pages/token-monitoring/index.html",
+    "output": "token-monitoring/index.html"
+  },
+  {
+    "source": "src/pages/usage-policy/index.html",
+    "output": "usage-policy/index.html"
+  },
+  {
+    "source": "src/pages/versions/index.html",
+    "output": "versions/index.html"
+  }
+]

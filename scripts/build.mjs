@@ -13,15 +13,16 @@ const allNative = !pilotOutput && !legacyReference;
 const output = resolve(root, nativeReview ? 'artifacts/native-all' : pilotOutput ? 'artifacts/native-pilot' : legacyReference ? 'artifacts/legacy-reference' : 'public');
 const staging = `${output}.staging`;
 const previous = `${output}.previous`;
-const inputs = JSON.parse(await readFile(resolve(root, 'config/site-inputs.json'), 'utf8'));
+const pageManifest = allNative ? 'native-pages.json' : 'legacy-pages.json';
+const pages = JSON.parse(await readFile(resolve(root, 'config', pageManifest), 'utf8'));
+const sharedInputs = JSON.parse(await readFile(resolve(root, 'config/site-inputs.json'), 'utf8'));
+const inputs = [...pages, ...sharedInputs];
 const globeTextures=['earth-blue-marble.jpg','earth-topology.png'].map(name=>({source:`node_modules/three-globe/example/img/${name}`,output:`assets/globe/${name}`}));
 const animationVendors=['gsap','ScrollTrigger','SplitText'].map(name=>({source:`node_modules/gsap/dist/${name}.min.js`,output:`assets/vendor/${name}.min.js`}));
 if(allNative){
  inputs.push(...animationVendors,...globeTextures);
  const optimizedImages=JSON.parse(await readFile(resolve(root,'config/optimized-images.json'),'utf8'));
  for(const path of new Set(Object.values(optimizedImages).flatMap(image=>[image.src,...(image.variants||[]).map(v=>v.src)])))inputs.push({source:'static'+path,output:path.slice(1)});
- const pages=JSON.parse(await readFile(resolve(root,'config/native-pages.json'),'utf8'));
- for(const page of pages){const index=inputs.findIndex(e=>e.output===page.output);if(index<0)throw new Error(`Unknown route ${page.output}`);inputs[index]=page;}
  for(const [output,source] of [['assets/native-navigation.js','src/client/page-navigation.js'],['assets/forms/forms2.js','src/client/forms-adapter.js']]){
   const entry=inputs.find(e=>e.output===output);if(!entry)throw new Error(`Missing candidate resource ${output}`);entry.source=source;
  }
@@ -32,11 +33,12 @@ if(allNative){
  if(remaining.length)throw new Error(`Unmigrated full pages: ${remaining.map(e=>e.output).join(', ')}`);
  for(let index=inputs.length-1;index>=0;index--){
   const source=inputs[index].source;
-  if((source.startsWith('legacy/runtime/')&&source.endsWith('.js'))||source===`static/assets/${site.compatibilityScript}`)inputs.splice(index,1);
+  if((source.startsWith('legacy/runtime/')&&source.endsWith('.js'))||source===`static/assets/${site.compatibilityScript}`||source==='static/assets/yaju-hydration-safe.css')inputs.splice(index,1);
  }
 }
 const textExtensions = /\.(html|js|css|json|webmanifest)$/;
-const override = await readFile(resolve(root, 'static/assets/yaju-hydration-safe.css'), 'utf8');
+const stylesheetVersion = allNative ? site.nativeStylesheetVersion : site.stylesheetVersion;
+const override = allNative ? '' : await readFile(resolve(root, 'static/assets/yaju-hydration-safe.css'), 'utf8');
 const analyticsMarker = `gtag('config', '${site.analyticsId}')`;
 const analytics = `
 <!-- Google tag (gtag.js) -->
@@ -94,11 +96,11 @@ for (const entry of inputs) {
     }
     if (/^_yaju\/static\/immutable\/chunks\/[^/]+\.css$/.test(target)) {
       content += override;
-      target = target.replace(/\.css$/, `-${site.stylesheetVersion}.css`);
+      target = target.replace(/\.css$/, `-${stylesheetVersion}.css`);
     }
     if (/\.(html|js|json|webmanifest)$/.test(target)) {
       content = content.replace(/(\/_yaju\/static\/immutable\/chunks\/[^"'\\?]+)\.css/g,
-        `$1-${site.stylesheetVersion}.css`);
+        `$1-${stylesheetVersion}.css`);
     }
     bytes = Buffer.from(content);
   }
@@ -107,6 +109,10 @@ for (const entry of inputs) {
   await writeFile(destination, bytes);
 }
 if (allNative) {
+ const { inlineHomepageStyles } = await import('../src/components/homepage-styles.mjs');
+ const homepage = resolve(staging, 'index.html');
+ const homeHtml = await readFile(homepage, 'utf8');
+ await writeFile(homepage, await inlineHomepageStyles(homeHtml, path => readFile(confined(staging, path.slice(1)), 'utf8')));
  const {buildLanguages}=await import('../src/i18n/build.mjs');
  await buildLanguages(staging,root,inputs);
  // Minify after translation so locale extraction still reads readable source.

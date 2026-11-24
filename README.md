@@ -16,7 +16,11 @@ copia indiscriminadamente el repositorio ni incluye el backend de `supabase/`.
 - `src/components/`: plantillas y fragmentos compartidos; Legal tiene datos propios.
 - `src/client/`: interacciones nativas, cargadas según cada ruta.
 - `static/`: imágenes, fuentes, CSS y medios conservados.
-- `config/native-pages.json`: rutas nativas; `config/site-inputs.json`: inventario de recursos y redirecciones.
+- `config/native-pages.json`: registro de páginas nativas para producción y sus versiones traducidas.
+- `config/site-inputs.json`: recursos y destinos de compatibilidad compartidos.
+- `config/legacy-pages.json`: páginas históricas para reconstruir la referencia de migración.
+- `vercel.json`: redirecciones HTTP. Si una ruta publicada cambia, ejecuta
+  `node scripts/sync-vercel-redirects.mjs` para regenerar las reglas.
 - `src/pages/` y `legacy/runtime/`: material de referencia para comprobar o recuperar
   la versión anterior. El runtime descargado y el parche DOM no se publican.
 

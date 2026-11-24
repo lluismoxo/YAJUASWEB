@@ -19,7 +19,8 @@
     "check:pilot": "node scripts/check-native-pilot.mjs",
     "check:interactions": "node scripts/check-pilot-interactions.mjs",
     "check:i18n": "node scripts/check-i18n.mjs",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "check:browser": "node scripts/check-native-navigation.mjs"
   },
   "devDependencies": {
     "acorn": "^8.19.0",
@@ -27,6 +28,7 @@
     "globe.gl": "2.44.0",
     "gsap": "3.13.0",
     "parse5": "^7.3.0",
+    "playwright": "1.64.1",
     "sharp": "0.35.5",
     "three": "0.179.1",
     "three-globe": "2.44.0",
