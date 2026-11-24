@@ -4,8 +4,11 @@ import { readFile, readdir, access } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
-const inputs = JSON.parse(await readFile(resolve(root, 'config/site-inputs.json'), 'utf8'));
-const htmlInputs = inputs.filter(entry => entry.output.endsWith('.html'));
+const shared = JSON.parse(await readFile(resolve(root, 'config/site-inputs.json'), 'utf8'));
+const legacy = JSON.parse(await readFile(resolve(root, 'config/legacy-pages.json'), 'utf8'));
+const native = JSON.parse(await readFile(resolve(root, 'config/native-pages.json'), 'utf8'));
+const inputs = [...shared, ...legacy];
+const htmlInputs = [...shared, ...native].filter(entry => entry.output.endsWith('.html'));
 
 test('every public source has exactly one manifest entry; private code is excluded', async () => {
   const expected = new Set(inputs.map(entry => entry.source));
@@ -13,11 +16,12 @@ test('every public source has exactly one manifest entry; private code is exclud
   assert.equal(new Set(inputs.map(entry => entry.output)).size, inputs.length);
   const optimized=JSON.parse(await readFile(resolve(root,'config/optimized-images.json'),'utf8'));
   for(const path of new Set(Object.values(optimized).flatMap(image=>[image.src,...(image.variants||[]).map(v=>v.src)])))expected.add('static'+path);
-  // Candidate templates are build dependencies, not individually published files.
+  // Templates are build dependencies rather than public files.
   expected.add('src/content/card-dates.json');
-  const candidates = JSON.parse(await readFile(resolve(root, 'config/native-pages.json'), 'utf8'));
-  for (const entry of candidates) {
-    assert.ok(inputs.some(current => current.output === entry.output), `Unknown candidate output: ${entry.output}`);
+  const sharedOutputs = new Set(shared.map(entry => entry.output));
+  assert.equal(new Set(native.map(entry => entry.output)).size, native.length);
+  for (const entry of native) {
+    assert.ok(!sharedOutputs.has(entry.output), `Native route repeated in shared manifest: ${entry.output}`);
     const page = JSON.parse(await readFile(resolve(root, entry.source), 'utf8'));
     assert.match(page.key, /^[a-z0-9_-]+$/);
     for (const source of [entry.source, `src/content/pages/${page.key}.html`, `src/content/pages/${page.key}.head.html`]) expected.add(source);
@@ -36,7 +40,7 @@ test('every public source has exactly one manifest entry; private code is exclud
   }
   for (const dir of ['src/pages', 'src/content', 'src/client', 'static', 'legacy/runtime']) await walk(dir);
   assert.equal(expected.size, 0, `Missing sources: ${[...expected]}`);
-  for (const entry of inputs) assert.ok(!/(^|\/)(supabase|scripts|tests|docs|config|\.env[^/]*)(\/|$)/.test(entry.output));
+  for (const entry of [...inputs, ...native]) assert.ok(!/(^|\/)(supabase|scripts|tests|docs|config|\.env[^/]*)(\/|$)/.test(entry.output));
 });
 
 test('rendered internal page links and script/style resources resolve in the build', async () => {
@@ -92,12 +96,14 @@ test('an invalid input cannot replace the last successful build', async () => {
     await cp(resolve(root, 'scripts/build.mjs'), resolve(temp, 'scripts/build.mjs'));
     await cp(resolve(root, 'config/site.mjs'), resolve(temp, 'config/site.mjs'));
     await cp(resolve(root, 'src/components/redirect.mjs'), resolve(temp, 'src/components/redirect.mjs'));
+    await writeFile(resolve(temp, 'config/legacy-pages.json'), '[]');
     await writeFile(resolve(temp, 'static/assets/yaju-hydration-safe.css'), '');
     await writeFile(resolve(temp, 'artifacts/legacy-reference/index.html'), 'last good build');
     for (const badSource of ['.env.local', 'src/pages/../../.env.local', 'src/pages/missing.html']) {
       await writeFile(resolve(temp, 'config/site-inputs.json'), JSON.stringify([{source:badSource, output:'index.html'}]));
       const result = spawnSync(process.execPath, ['scripts/build.mjs','--legacy-reference'], {cwd:temp, encoding:'utf8'});
       assert.notEqual(result.status, 0, `Accepted invalid source: ${badSource}`);
+      assert.match(result.stderr, /Input outside the public source allowlist|Path escapes source\/output directory|ENOENT.*lstat/);
       assert.equal(await readFile(resolve(temp, 'artifacts/legacy-reference/index.html'), 'utf8'), 'last good build');
     }
   } finally { await rm(temp, {recursive:true,force:true}); }

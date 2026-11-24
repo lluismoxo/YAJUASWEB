@@ -6,9 +6,8 @@ import {dirname,resolve} from 'node:path';
 import {languages,createTranslator} from './translate.mjs';
 import {localizedPage,alternates,languagePath} from './pages.mjs';
 export async function buildLanguages(staging,root,inputs){
- const pages=JSON.parse(await readFile(resolve(root,'config/native-pages.json'),'utf8'));
- pages.push({output:'legal/index.html'});
- const routeFor=p=>'/'+p.output.replace(/index.html$/,'').replace(/\/$/,'');
+ const pages=inputs.filter(entry=>entry.render==='page'||entry.render==='legal');
+ const routeFor=p=>'/'+p.output.replace(/index\.html$/,'').replace(/\/$/,'');
  const routes=new Set(inputs.filter(p=>p.output.endsWith('/index.html')||p.output==='index.html').map(routeFor));
  const assets=['native-navigation.js','native-page.js','native-forms.js','native-stack.js','native-labs.js','native-campaign.js','native-report.js','native-dissolve-headline.js','forms/forms2.js'].map(s=>'/assets/'+s);
  const scripts=new Set(assets);

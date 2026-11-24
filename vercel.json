@@ -39,5 +39,537 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/ai-for-empowerment{/index.html}?{/}?",
+      "destination": "/ai-spend",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/ai-for-empowerment{/index.html}?{/}?",
+      "destination": "/:locale/ai-spend",
+      "permanent": true
+    },
+    {
+      "source": "/blog/command-a-plus{/index.html}?{/}?",
+      "destination": "/blog/when-a-bigger-model-is-the-wrong-answer",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/command-a-plus{/index.html}?{/}?",
+      "destination": "/:locale/blog/when-a-bigger-model-is-the-wrong-answer",
+      "permanent": true
+    },
+    {
+      "source": "/blog/command-a{/index.html}?{/}?",
+      "destination": "/blog/choosing-a-model-is-an-operations-decision",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/command-a{/index.html}?{/}?",
+      "destination": "/:locale/blog/choosing-a-model-is-an-operations-decision",
+      "permanent": true
+    },
+    {
+      "source": "/blog/introducing-north-automations-ai-workflows{/index.html}?{/}?",
+      "destination": "/blog/introducing-the-software-factory",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/introducing-north-automations-ai-workflows{/index.html}?{/}?",
+      "destination": "/:locale/blog/introducing-the-software-factory",
+      "permanent": true
+    },
+    {
+      "source": "/blog/meet-north{/index.html}?{/}?",
+      "destination": "/blog/meet-the-software-factory",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/meet-north{/index.html}?{/}?",
+      "destination": "/:locale/blog/meet-the-software-factory",
+      "permanent": true
+    },
+    {
+      "source": "/blog/multimodal-embed-3{/index.html}?{/}?",
+      "destination": "/blog/what-an-embedding-commits-you-to",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/multimodal-embed-3{/index.html}?{/}?",
+      "destination": "/:locale/blog/what-an-embedding-commits-you-to",
+      "permanent": true
+    },
+    {
+      "source": "/blog/north-eap{/index.html}?{/}?",
+      "destination": "/blog/how-our-early-access-programme-works",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/north-eap{/index.html}?{/}?",
+      "destination": "/:locale/blog/how-our-early-access-programme-works",
+      "permanent": true
+    },
+    {
+      "source": "/blog/north-mini-code{/index.html}?{/}?",
+      "destination": "/blog/small-agents-scoped-tightly",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/north-mini-code{/index.html}?{/}?",
+      "destination": "/:locale/blog/small-agents-scoped-tightly",
+      "permanent": true
+    },
+    {
+      "source": "/blog/north-small-translate{/index.html}?{/}?",
+      "destination": "/blog/a-small-agent-for-a-narrow-job",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/north-small-translate{/index.html}?{/}?",
+      "destination": "/:locale/blog/a-small-agent-for-a-narrow-job",
+      "permanent": true
+    },
+    {
+      "source": "/blog/parse{/index.html}?{/}?",
+      "destination": "/blog/documents-are-not-text",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/parse{/index.html}?{/}?",
+      "destination": "/:locale/blog/documents-are-not-text",
+      "permanent": true
+    },
+    {
+      "source": "/blog/rerank-4{/index.html}?{/}?",
+      "destination": "/blog/reranking-is-the-cheapest-accuracy",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/rerank-4{/index.html}?{/}?",
+      "destination": "/:locale/blog/reranking-is-the-cheapest-accuracy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/transcribe-arabic{/index.html}?{/}?",
+      "destination": "/blog/transcription-outside-tuned-languages",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/transcribe-arabic{/index.html}?{/}?",
+      "destination": "/:locale/blog/transcription-outside-tuned-languages",
+      "permanent": true
+    },
+    {
+      "source": "/blog/transcribe{/index.html}?{/}?",
+      "destination": "/blog/transcription-is-an-input-problem",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/transcribe{/index.html}?{/}?",
+      "destination": "/:locale/blog/transcription-is-an-input-problem",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wikipedia-rerank{/index.html}?{/}?",
+      "destination": "/blog/retrieval-evaluation-from-a-public-corpus",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/blog/wikipedia-rerank{/index.html}?{/}?",
+      "destination": "/:locale/blog/retrieval-evaluation-from-a-public-corpus",
+      "permanent": true
+    },
+    {
+      "source": "/command{/index.html}?{/}?",
+      "destination": "/ai-observability",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/command{/index.html}?{/}?",
+      "destination": "/:locale/ai-observability",
+      "permanent": true
+    },
+    {
+      "source": "/compass{/index.html}?{/}?",
+      "destination": "/mcp-gateway",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/compass{/index.html}?{/}?",
+      "destination": "/:locale/mcp-gateway",
+      "permanent": true
+    },
+    {
+      "source": "/embed{/index.html}?{/}?",
+      "destination": "/ai-spend-explorer",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/embed{/index.html}?{/}?",
+      "destination": "/:locale/ai-spend-explorer",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise-data-commitments{/index.html}?{/}?",
+      "destination": "/data-commitments",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/enterprise-data-commitments{/index.html}?{/}?",
+      "destination": "/:locale/data-commitments",
+      "permanent": true
+    },
+    {
+      "source": "/events{/index.html}?{/}?",
+      "destination": "/newsroom",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/events{/index.html}?{/}?",
+      "destination": "/:locale/newsroom",
+      "permanent": true
+    },
+    {
+      "source": "/llmu{/index.html}?{/}?",
+      "destination": "/agent-academy",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/llmu{/index.html}?{/}?",
+      "destination": "/:locale/agent-academy",
+      "permanent": true
+    },
+    {
+      "source": "/models-overview{/index.html}?{/}?",
+      "destination": "/versions",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/models-overview{/index.html}?{/}?",
+      "destination": "/:locale/versions",
+      "permanent": true
+    },
+    {
+      "source": "/north-demo{/index.html}?{/}?",
+      "destination": "/software-factory-demo",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/north-demo{/index.html}?{/}?",
+      "destination": "/:locale/software-factory-demo",
+      "permanent": true
+    },
+    {
+      "source": "/north-mini-code{/index.html}?{/}?",
+      "destination": "/oran-mini-code",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/north-mini-code{/index.html}?{/}?",
+      "destination": "/:locale/oran-mini-code",
+      "permanent": true
+    },
+    {
+      "source": "/north{/index.html}?{/}?",
+      "destination": "/software-factory",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/north{/index.html}?{/}?",
+      "destination": "/:locale/software-factory",
+      "permanent": true
+    },
+    {
+      "source": "/parse{/index.html}?{/}?",
+      "destination": "/cli",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/parse{/index.html}?{/}?",
+      "destination": "/:locale/cli",
+      "permanent": true
+    },
+    {
+      "source": "/private-deployments{/index.html}?{/}?",
+      "destination": "/self-hosted",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/private-deployments{/index.html}?{/}?",
+      "destination": "/:locale/self-hosted",
+      "permanent": true
+    },
+    {
+      "source": "/products{/index.html}?{/}?",
+      "destination": "/agent-orchestration-system",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/products{/index.html}?{/}?",
+      "destination": "/:locale/agent-orchestration-system",
+      "permanent": true
+    },
+    {
+      "source": "/rerank{/index.html}?{/}?",
+      "destination": "/optimizer",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/rerank{/index.html}?{/}?",
+      "destination": "/:locale/optimizer",
+      "permanent": true
+    },
+    {
+      "source": "/research/agentic-task-ecosystem{/index.html}?{/}?",
+      "destination": "/labs/agentic-task-ecosystem",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/agentic-task-ecosystem{/index.html}?{/}?",
+      "destination": "/:locale/labs/agentic-task-ecosystem",
+      "permanent": true
+    },
+    {
+      "source": "/research/aya{/index.html}?{/}?",
+      "destination": "/labs/oran",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/aya{/index.html}?{/}?",
+      "destination": "/:locale/labs/oran",
+      "permanent": true
+    },
+    {
+      "source": "/research/education{/index.html}?{/}?",
+      "destination": "/labs/education",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/education{/index.html}?{/}?",
+      "destination": "/:locale/labs/education",
+      "permanent": true
+    },
+    {
+      "source": "/research/futures-of-work{/index.html}?{/}?",
+      "destination": "/labs/futures-of-work",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/futures-of-work{/index.html}?{/}?",
+      "destination": "/:locale/labs/futures-of-work",
+      "permanent": true
+    },
+    {
+      "source": "/research/globalmmlu{/index.html}?{/}?",
+      "destination": "/agent-academy",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/globalmmlu{/index.html}?{/}?",
+      "destination": "/:locale/agent-academy",
+      "permanent": true
+    },
+    {
+      "source": "/research/grants/application{/index.html}?{/}?",
+      "destination": "/labs/catalyst-grants/application",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/grants/application{/index.html}?{/}?",
+      "destination": "/:locale/labs/catalyst-grants/application",
+      "permanent": true
+    },
+    {
+      "source": "/research/grants{/index.html}?{/}?",
+      "destination": "/labs/catalyst-grants",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/grants{/index.html}?{/}?",
+      "destination": "/:locale/labs/catalyst-grants",
+      "permanent": true
+    },
+    {
+      "source": "/research{/index.html}?{/}?",
+      "destination": "/labs",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research{/index.html}?{/}?",
+      "destination": "/:locale/labs",
+      "permanent": true
+    },
+    {
+      "source": "/research/newsletter{/index.html}?{/}?",
+      "destination": "/labs/newsletter",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/newsletter{/index.html}?{/}?",
+      "destination": "/:locale/labs/newsletter",
+      "permanent": true
+    },
+    {
+      "source": "/research/open-science/application{/index.html}?{/}?",
+      "destination": "/labs/open-development/application",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/open-science/application{/index.html}?{/}?",
+      "destination": "/:locale/labs/open-development/application",
+      "permanent": true
+    },
+    {
+      "source": "/research/open-science{/index.html}?{/}?",
+      "destination": "/labs/open-development",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/open-science{/index.html}?{/}?",
+      "destination": "/:locale/labs/open-development",
+      "permanent": true
+    },
+    {
+      "source": "/research/oran{/index.html}?{/}?",
+      "destination": "/labs/oran",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/oran{/index.html}?{/}?",
+      "destination": "/:locale/labs/oran",
+      "permanent": true
+    },
+    {
+      "source": "/research/scholars-program{/index.html}?{/}?",
+      "destination": "/labs/scholars",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/research/scholars-program{/index.html}?{/}?",
+      "destination": "/:locale/labs/scholars",
+      "permanent": true
+    },
+    {
+      "source": "/saas-agreement{/index.html}?{/}?",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/saas-agreement{/index.html}?{/}?",
+      "destination": "/:locale/terms",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/energy-and-utilities{/index.html}?{/}?",
+      "destination": "/cost-control",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/solutions/energy-and-utilities{/index.html}?{/}?",
+      "destination": "/:locale/cost-control",
+      "permanent": true
+    },
+    {
+      "source": "/solutions{/index.html}?{/}?",
+      "destination": "/ai-transformation",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/solutions{/index.html}?{/}?",
+      "destination": "/:locale/ai-transformation",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/model-vault{/index.html}?{/}?",
+      "destination": "/credential-vault",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/solutions/model-vault{/index.html}?{/}?",
+      "destination": "/:locale/credential-vault",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/technology{/index.html}?{/}?",
+      "destination": "/solutions/engineering",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/solutions/technology{/index.html}?{/}?",
+      "destination": "/:locale/solutions/engineering",
+      "permanent": true
+    },
+    {
+      "source": "/total-cost-of-ai-ownership{/index.html}?{/}?",
+      "destination": "/token-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/total-cost-of-ai-ownership{/index.html}?{/}?",
+      "destination": "/:locale/token-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/transcribe{/index.html}?{/}?",
+      "destination": "/agent-hub",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko)/transcribe{/index.html}?{/}?",
+      "destination": "/:locale/agent-hub",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|fr|es|ja|ko){/index.html}?",
+      "destination": "/:locale/",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:about|agent-academy|agent-hub|agent-orchestration-system|ai-approach|ai-governance|ai-observability|ai-spend|ai-spend-explorer|ai-transformation|blog|careers|cli|contact-sales|cookies|cost-control|credential-vault|customer-stories|customization|data-commitments|deployment-options|developers|get-started|labs|legal|mcp-gateway|newsroom|optimizer|oran-mini-code|partners|pricing|privacy|responsible-disclosure|security|self-hosted|software-factory|software-factory-demo|terms|terms-of-use|token-monitoring|usage-policy|versions))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:blog/2026-summer-merch-collection|blog/a-day-in-the-life-of-a-wealth-manager-with-and-without-ai|blog/a-small-agent-for-a-narrow-job|blog/agent-rollouts-across-business-units|blog/agent-workloads-and-infrastructure|blog/agentic-task-ecosystem|blog/agents-and-systems-of-record|blog/agents-in-manufacturing-operations|blog/agents-in-regulated-industries|blog/agents-in-telecom-operations|blog/agents-on-your-own-hardware|blog/agents-that-plan-and-agents-that-react|blog/agents-that-work-outside-english|blog/air-gapped-agent-deployments|blog/announcement|blog/automating-fork-maintenance-with-ai-agents|blog/automations-early-footprint|blog/building-for-ai-regulation|blog/choosing-a-model-is-an-operations-decision|blog/chunking-for-rag-maximize-enterprise-knowledge-retrieval|blog/community-research-across-regions|blog/connect-2025|blog/documents-are-not-text|blog/enterprise-ai-maturity-model|blog/evaluating-an-agent-platform|blog/exploring-ai-in-education|blog/forward-deployed-engineers-capability-building|blog/generative-ai-for-business|blog/hardware-aware-dynamic-speculative-decoding|blog/hiring-engineers-new-to-agents|blog/how-our-early-access-programme-works|blog/how-small-models-can-make-a-big-impact-for-enterprises|blog/how-we-are-growing-the-team|blog/introducing-the-software-factory|blog/latency-budgets-for-agents|blog/meet-the-software-factory|blog/megakernels|blog/multimodal-embeddings|blog/oran-in-the-wild|blog/reranking-in-your-own-cloud|blog/reranking-is-the-cheapest-accuracy|blog/retrieval-evaluation-from-a-public-corpus|blog/running-agents-under-eu-data-rules|blog/small-agents-scoped-tightly|blog/state-of-sovereign-ai-adoption-2026|blog/tag/ai-for-developers|blog/tag/ai-governance|blog/tag/company-news|blog/tag/enterprise-ai|blog/tag/financial-services|blog/tag/for-business|blog/tag/healthcare-life-sciences|blog/tag/open-science|blog/tag/partner|blog/tag/product-launch|blog/tag/research|blog/tag/sovereign-ai|blog/tag/technology|blog/the-future-of-work-debate-has-an-evidence-problem|blog/the-total-cost-of-ai-ownership|blog/the-yaju-approach-to-ai-governance|blog/transcription-is-an-input-problem|blog/transcription-outside-tuned-languages|blog/what-an-embedding-commits-you-to|blog/what-changed-in-oran-3-6|blog/what-sovereign-deployment-requires|blog/what-we-look-for-in-scholars|blog/what-your-corpus-leaves-out|blog/when-a-bigger-model-is-the-wrong-answer|blog/why-agent-programmes-stall|blog/working-with-delivery-partners))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:customer-stories/agents-in-cloud-operations|customer-stories/agents-in-contract-review|customer-stories/agents-in-enterprise-integration|customer-stories/support-triage-with-agents))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:labs/agentic-task-ecosystem|labs/catalyst-grants|labs/catalyst-grants/application|labs/education|labs/futures-of-work|labs/newsletter|labs/open-development|labs/open-development/application|labs/oran|labs/scholars))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:lp/thank-you))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:partners/application))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:reports/state-of-sovereign-ai-adoption-2026))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?:(?:de|fr|es|ja|ko)/)?(?:solutions/engineering|solutions/financial-services|solutions/healthcare-and-life-sciences|solutions/manufacturing|solutions/public-sector|solutions/telecommunications))/{index.html}?",
+      "destination": "/:page",
+      "permanent": true
+    }
   ]
 }

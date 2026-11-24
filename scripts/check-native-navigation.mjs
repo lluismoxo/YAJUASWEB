@@ -7,7 +7,7 @@ const origin = new URL(process.env.YAJU_TEST_ORIGIN || 'http://127.0.0.1:4184').
 // One consumer of each standard header variant. Campaign and registration use separate navigation.
 const routes = ['/', '/blog/what-your-corpus-leaves-out', '/blog/the-future-of-work-debate-has-an-evidence-problem', '/agent-academy', '/labs/futures-of-work', '/software-factory-demo', '/labs/scholars'];
 const results = [];
-const browser = await chromium.launch({ channel: 'chrome', headless: true });
+const browser = await chromium.launch({ channel: process.env.YAJU_BROWSER_CHANNEL || 'chrome', headless: true });
 try {
   for (const width of [1440, 768, 390]) {
     for (const route of routes) {

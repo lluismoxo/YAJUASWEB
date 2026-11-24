@@ -1,0 +1,61 @@
+name: Website browser checks
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  navigation:
+    name: Navigation on desktop and mobile
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --include=dev
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Install Chromium
+        run: npm exec -- playwright install --with-deps --no-shell chromium
+
+      - name: Run browser checks against local build
+        env:
+          YAJU_BROWSER_CHANNEL: chromium
+          YAJU_TEST_ORIGIN: http://127.0.0.1:4184
+        run: |
+          server_log="$RUNNER_TEMP/yaju-web-serve.log"
+          python3 -m http.server 4184 --bind 127.0.0.1 --directory public > "$server_log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl --silent --fail "$YAJU_TEST_ORIGIN/" > /dev/null; then
+              npm run check:browser
+              exit
+            fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          cat "$server_log" >&2
+          exit 1
