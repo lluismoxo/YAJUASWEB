@@ -20,3 +20,17 @@ test('every localized page has consistent social metadata, reachable images and 
 test('thank-you pages remain crawlable but are not indexed or listed in sitemap',async()=>{const xml=await readFile('public/sitemap.xml','utf8');assert.ok(!xml.includes('/lp/thank-you'));for(const l of languages){const s=await readFile('public'+l.prefix+'/lp/thank-you/index.html','utf8');assert.match(s,/<meta name="robots" content="noindex, follow">/)}});
 test('contact and catalyst landing pages have a primary heading without changing styling classes',async()=>{for(const route of ['get-started','labs/catalyst-grants']){const all=nodes(await readFile('public/'+route+'/index.html','utf8'));assert.equal(all.filter(n=>n.tagName==='h1').length,1,route)}});
 test('reviewed existing articles and use cases are discoverable in every language',async()=>{const routes=['blog/the-yaju-approach-to-ai-governance','blog/choosing-a-model-is-an-operations-decision','blog/introducing-the-software-factory','blog/the-total-cost-of-ai-ownership','blog/agents-and-systems-of-record','customer-stories/support-triage-with-agents','customer-stories/agents-in-cloud-operations','customer-stories/agents-in-contract-review','customer-stories/agents-in-enterprise-integration'];const xml=await readFile('public/sitemap.xml','utf8');for(const l of languages)for(const route of routes){const s=await readFile('public'+l.prefix+'/'+route+'/index.html','utf8');assert.ok(!/name="robots"[^>]+noindex/.test(s));assert.ok(xml.includes('<loc>https://yajuas.com'+l.prefix+'/'+route+'</loc>'));assert.ok(s.includes('"@type":"Article"'))}});
+
+test('blog cards link directly to the article instead of a compatibility redirect', async () => {
+ const inputs = JSON.parse(await readFile('config/site-inputs.json', 'utf8'));
+ const legacyPaths = new Set(inputs.filter(entry => entry.render === 'redirect')
+  .map(entry => '/' + entry.output.replace(/\/index\.html$/, '')));
+ for (const language of languages) {
+  const page = await readFile('public' + language.prefix + '/blog/index.html', 'utf8');
+  for (const link of nodes(page).filter(node => node.tagName === 'a')) {
+   const href = attrs(link).href;
+   if (!href?.startsWith(language.prefix + '/blog/')) continue;
+   assert.ok(!legacyPaths.has(href.slice(language.prefix.length)), `Blog links to a legacy redirect: ${href}`);
+  }
+ }
+});
