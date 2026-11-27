@@ -17,10 +17,19 @@ const pageManifest = allNative ? 'native-pages.json' : 'legacy-pages.json';
 const pages = JSON.parse(await readFile(resolve(root, 'config', pageManifest), 'utf8'));
 const sharedInputs = JSON.parse(await readFile(resolve(root, 'config/site-inputs.json'), 'utf8'));
 const inputs = [...pages, ...sharedInputs];
+let approvedMedia, blogCovers;
 const globeTextures=['earth-blue-marble.jpg','earth-topology.png'].map(name=>({source:`node_modules/three-globe/example/img/${name}`,output:`assets/globe/${name}`}));
 const animationVendors=['gsap','ScrollTrigger','SplitText'].map(name=>({source:`node_modules/gsap/dist/${name}.min.js`,output:`assets/vendor/${name}.min.js`}));
 if(allNative){
  inputs.push(...animationVendors,...globeTextures);
+ const { createApprovedMedia } = await import('../src/components/approved-media.mjs');
+ const selections = JSON.parse(await readFile(resolve(root, 'config/approved-media.json'), 'utf8'));
+ approvedMedia = createApprovedMedia(selections);
+ for (const path of approvedMedia.files) inputs.push({ source: 'static' + path, output: path.slice(1) });
+ const { createBlogCovers } = await import('../src/components/blog-covers.mjs');
+ const coverAdditions = JSON.parse(await readFile(resolve(root, 'config/blog-cover-additions.json'), 'utf8'));
+ blogCovers = createBlogCovers(coverAdditions);
+ for (const path of blogCovers.files) inputs.push({ source: 'static' + path, output: path.slice(1) });
  const optimizedImages=JSON.parse(await readFile(resolve(root,'config/optimized-images.json'),'utf8'));
  for(const path of new Set(Object.values(optimizedImages).flatMap(image=>[image.src,...(image.variants||[]).map(v=>v.src)])))inputs.push({source:'static'+path,output:path.slice(1)});
  for(const [output,source] of [['assets/native-navigation.js','src/client/page-navigation.js'],['assets/forms/forms2.js','src/client/forms-adapter.js']]){
@@ -114,7 +123,7 @@ if (allNative) {
  const homeHtml = await readFile(homepage, 'utf8');
  await writeFile(homepage, await inlineHomepageStyles(homeHtml, path => readFile(confined(staging, path.slice(1)), 'utf8')));
  const {buildLanguages}=await import('../src/i18n/build.mjs');
- await buildLanguages(staging,root,inputs);
+ await buildLanguages(staging,root,inputs,approvedMedia.rewrite,blogCovers.assign);
  // Minify after translation so locale extraction still reads readable source.
  const {transform}=await import('esbuild');
  const {readdir}=await import('node:fs/promises');
