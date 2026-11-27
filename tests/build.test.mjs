@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, access } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createApprovedMedia } from '../src/components/approved-media.mjs';
+import { createBlogCovers } from '../src/components/blog-covers.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const shared = JSON.parse(await readFile(resolve(root, 'config/site-inputs.json'), 'utf8'));
 const legacy = JSON.parse(await readFile(resolve(root, 'config/legacy-pages.json'), 'utf8'));
@@ -16,6 +18,10 @@ test('every public source has exactly one manifest entry; private code is exclud
   assert.equal(new Set(inputs.map(entry => entry.output)).size, inputs.length);
   const optimized=JSON.parse(await readFile(resolve(root,'config/optimized-images.json'),'utf8'));
   for(const path of new Set(Object.values(optimized).flatMap(image=>[image.src,...(image.variants||[]).map(v=>v.src)])))expected.add('static'+path);
+  const selections = JSON.parse(await readFile(resolve(root, 'config/approved-media.json'), 'utf8'));
+  for (const path of createApprovedMedia(selections).files) expected.add('static' + path);
+  const covers = JSON.parse(await readFile(resolve(root, 'config/blog-cover-additions.json'), 'utf8'));
+  for (const path of createBlogCovers(covers).files) expected.add('static' + path);
   // Templates are build dependencies rather than public files.
   expected.add('src/content/card-dates.json');
   const sharedOutputs = new Set(shared.map(entry => entry.output));

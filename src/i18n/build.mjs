@@ -5,13 +5,15 @@ import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
 import {dirname,resolve} from 'node:path';
 import {languages,createTranslator} from './translate.mjs';
 import {localizedPage,alternates,languagePath} from './pages.mjs';
-export async function buildLanguages(staging,root,inputs){
+export async function buildLanguages(staging,root,inputs,rewriteApprovedMedia,assignBlogCovers){
  const pages=inputs.filter(entry=>entry.render==='page'||entry.render==='legal');
  const routeFor=p=>'/'+p.output.replace(/index\.html$/,'').replace(/\/$/,'');
  const routes=new Set(inputs.filter(p=>p.output.endsWith('/index.html')||p.output==='index.html').map(routeFor));
  const assets=['native-navigation.js','native-page.js','native-forms.js','native-stack.js','native-labs.js','native-campaign.js','native-report.js','native-dissolve-headline.js','forms/forms2.js'].map(s=>'/assets/'+s);
  const scripts=new Set(assets);
  const sources=new Map(await Promise.all(pages.map(async p=>[p.output,await readFile(resolve(staging,p.output),'utf8')])));
+ const rewriteBlogCovers=assignBlogCovers(sources);
+ for(const [path,source] of sources)sources.set(path,rewriteBlogCovers(source));
  const resources=new Map(await Promise.all(assets.map(async p=>[p,await readFile(resolve(staging,'.'+p),'utf8')])));
  const forms=(await readdir(resolve(staging,'assets/forms'))).filter(s=>s.endsWith('.html'));
  const sitemap=[];
@@ -21,7 +23,8 @@ export async function buildLanguages(staging,root,inputs){
   const tr=createTranslator({language,dictionary,routes,scripts});
   for(const page of pages){
    const route=routeFor(page),source=sources.get(page.output);
-   const html=secureHtml(optimizeMedia(optimizeSeo(localizedPage(source,route,language,dictionary,routes,scripts),route,language,dictionary)));
+   const localized = localizedPage(source,route,language,dictionary,routes,scripts);
+   const html=secureHtml(optimizeMedia(optimizeSeo(rewriteApprovedMedia(localized),route,language,dictionary)));
    await emit(resolve(staging,'.'+language.prefix+'/'+page.output),html);
    if(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html))sitemap.push('<url><loc>https://yajuas.com'+languagePath(route,language)+'</loc>'+alternates(route).map(a=>`<xhtml:link rel="alternate" hreflang="${a.lang}" href="${a.href}" />`).join('')+'</url>');
   }
